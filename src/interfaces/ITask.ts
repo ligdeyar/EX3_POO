@@ -17,14 +17,3 @@ export interface ITaskFormProps {
     onChangeSelect: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     onSave: () => void;
 }
-
-export interface INewPanelProps {
-    task: ITask;
-    onSave: () => void;
-}
-
-export interface IFilterProps {
-    teams: string[];
-    //onFilterChange: (selectedTeam: string) => void;
-    //setSelectedTeam: React.Dispatch<React.SetStateAction<string>>;
-}
