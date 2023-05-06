@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
+import logo from './logo.png';
 import './App.css';
 
-import { ITask } from './interfaces/ITask'
-
-import Panel from './components/Panel' 
-import Filtro from './components/Filtro';
-import TaskForm from './components/TaskForm'
-import Papelera from './components/Papelera';
-import AddPanel from './components/CrearPanel';
+import {ITask} from './interfaces/ITask'
+import TaskForm from './componentes/TaskForm';
+import Panel from './componentes/Panel';
+import Panelnuevo from './componentes/Panelnuevo';
+import Filter from './componentes/Filter';
+import Papelera from './componentes/Papelera';
+import  AddPanel from './componentes/Panelnuevo'
 
 function App() {
+
 
   const [id, setId] = useState<number>(0)
   const [paneles, setPaneles] = useState<string[]>([]);
@@ -18,7 +20,7 @@ function App() {
   const [filtro, setFiltro] = useState<string>("");
   const [teams, setTeams] = useState<string[]>(["Development", "QA", "PMs", "BI"])
   const Options: string[] = ["TODO", ...paneles, "Papelera"];
-  
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTask({ ...task, [e.target.name]: e.target.value })
   }
@@ -109,12 +111,13 @@ function App() {
 
 
   return (
-    <div className="App">
-
+    <div className='App'>
+      <img src={logo}  alt="Logo.png" width="120" />
       <header>
-        <h1>TODO List</h1>
+        <h1>TODO LIST</h1>
       </header>
 
+      
       <div className="container">
         
       <AddPanel añadirPanel={handleAddPanel} paneles={paneles || []} />
@@ -127,7 +130,11 @@ function App() {
           onSave={addTask}
         />
 
-        <Filtro keyName={filtro} onChangeSelect={onChange} />
+        <Filter keyName={filtro}
+         onChangeSelect={onChange}
+         //setShowDeleteButton={setShowDeleteButton}
+         
+          />
 
         <div className="columnas">  
             <Panel
@@ -162,8 +169,8 @@ function App() {
         </div>
       </div>
     </div>
+
   );
 }
 
 export default App;
-

@@ -1,4 +1,6 @@
+
 import { ITask } from "./ITask";
+
 
 export interface IPanelProps {
     nombre: string;
@@ -15,4 +17,3 @@ export interface IPanelPapelera {
     changeStatus: (id: number, status: string) => void;
     deleteTaskDef: (id: number) => void;
 }
-

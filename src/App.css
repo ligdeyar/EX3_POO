@@ -41,6 +41,7 @@ td {
 }
 
 label {
+  display: inline-block;
   width: 100px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -80,7 +81,7 @@ button[ type= 'button'] {
 }
 
 button[type='button']{
-  background-color: rgb(75, 121, 181);
+  background-color: rgb(87, 102, 102);
 }
 
 /* Agregar el siguiente código para centrar el formulario */

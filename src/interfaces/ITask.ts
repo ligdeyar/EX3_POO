@@ -1,4 +1,5 @@
 import React from "react";
+//import { IPanelProps } from "./IPanel";
 
 export interface ITask {
     id: number;
@@ -8,6 +9,7 @@ export interface ITask {
     status?: string;
     hours?: number;
     team?: string;
+    filteredTasks?: ITask[];
 }
 
 export interface ITaskFormProps {
