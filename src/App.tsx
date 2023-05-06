@@ -5,8 +5,7 @@ import './App.css';
 import {ITask} from './interfaces/ITask'
 import TaskForm from './componentes/TaskForm';
 import Panel from './componentes/Panel';
-import Panelnuevo from './componentes/Panelnuevo';
-import Filter from './componentes/Filter';
+import Filtro from './componentes/Filtro';
 import Papelera from './componentes/Papelera';
 import  AddPanel from './componentes/Panelnuevo'
 
@@ -48,7 +47,10 @@ function App() {
 
   // FUNCION PARA ENVIAR UNA TAREA A LA PAPELERA
   const deleteTask = (id: number) => {
+    // tomamos como parametro la id
     const newTaskList = taskList.map((task) => {
+      
+      // si el id de la tarea es igual al del parametro, su status sera papelera
       if (task.id === id) {
         task.status = "Papelera";
       }
@@ -69,10 +71,10 @@ function App() {
     const tasksInPanel = manejoFiltros.filter((task) => task.status === title);
     if (tasksInPanel.length === 0) {
       const newPanels = paneles.filter((panelTitle) => panelTitle !== title);
-      setPaneles(newPanels);
-    } else {
-      alert("El panel no se puede eliminar porque todavía tiene tareas.");
-    }
+      setPaneles(newPanels);}
+    // } else {
+    //   alert("El panel no se puede eliminar porque todavía tiene tareas.");
+    // }
   };
 
   // FILTRAMOS LA LISTA DE TAREAS
@@ -81,15 +83,18 @@ function App() {
   };
   // los resultados los guardamos en el manejoFiltros
   const manejoFiltros: ITask[] = [];
-  //con el bluce iteramos y obtenemos los nombres y equipos de las tareas 
+  //con el for recorremos nuestro TaskList y obtenemos los nombres y equipos de las tareas 
   for (let i = 0; i < taskList.length; i++) {
     const task = taskList[i];
+    // obtenemos los nombres, equipos y filtro
     const taskName = task.name?.toLowerCase();
     const taskTeam = task.team?.toLowerCase();
     const filterLower = filtro.toLowerCase();
-
+    // si el nombre de la tarea incluye el nombre del filtro
     if (taskName && taskName.includes(filterLower)) {
+      // agregamos nuestro objeto al array manejOFiltros
       manejoFiltros.push(task);
+      // caso contrario probamos con el nombre del equipo de la
     } else if (taskTeam && taskTeam.includes(filterLower)) {
       manejoFiltros.push(task);
     }
@@ -130,7 +135,7 @@ function App() {
           onSave={addTask}
         />
 
-        <Filter keyName={filtro}
+        <Filtro keyName={filtro}
          onChangeSelect={onChange}
          //setShowDeleteButton={setShowDeleteButton}
          

@@ -1,15 +1,8 @@
-import { useState, useEffect } from 'react';
-
 import { IPanelProps } from '../interfaces/IPanel'
 import Card from './Card'
-import { ITask } from '../interfaces/ITask';
-
 
 function Panel(props: IPanelProps) {
 
-    const [tasks, setTasks] = useState(props.tasks);
-    const [filteredTasks, setFilteredTasks] = useState(props.tasks);
-    const [filter, setFilter] = useState(false);
 
 
     const handleDeleteClick = () => {

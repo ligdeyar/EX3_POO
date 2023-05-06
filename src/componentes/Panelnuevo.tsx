@@ -1,5 +1,5 @@
-
 import { useState  } from 'react';
+
 export interface Panelnuevo {
     añadirPanel: (title: string) => void;
     paneles: string[]
@@ -11,7 +11,7 @@ function Panelnuevo(props: Panelnuevo) {
     
     const validateForm=()=>{
         const inputName = inputValue.trim().toLowerCase();
-        
+        // si el nombre en el input no aparece en nombres existentes, llamamos a añadirPanel
         if (!nombresExistentes.includes(inputName)) {
           props.añadirPanel(inputName);
           setInputValue('');
